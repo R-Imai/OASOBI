@@ -2,7 +2,7 @@
 *	Name:		slot.c
 *	Author:		R.Imai
 *	Created:	2014 / ?? / ??
-*	Last Date:	2014 / ?? / ??
+*	Last Date:	2016 / 05 / 12
 *	Note:		スロットゲーム
 *
 *--------------------------------------------------------------------------------------------------------------*/
@@ -11,8 +11,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-void main(void)
-{
+void main(void){
 	int a, b, c, d, money, bet;
 
 	money = 10000;
@@ -22,11 +21,19 @@ void main(void)
 		printf("いくら賭けますか？\n￥");
 		scanf("%d", &bet);
 		money = money - bet;
-		srand((unsigned)time(NULL));
-		a = rand() % 10;
-		b = rand() % 10;
-		c = rand() % 10;
-		d = rand() % 10;
+		if (bet >= 0){
+			srand((unsigned)time(NULL));
+			a = rand() % 10;
+			b = rand() % 10;
+			c = rand() % 10;
+			d = rand() % 10;
+		}
+		else{
+			a = 9;
+			b = 9;
+			c = 9;
+			d = 9;
+		}
 		printf("■■■■■■■■■■■■■■\n");
 		printf("■■%2d■■%2d■■%2d■■%2d■■\n", a, b, c, d);
 		printf("■■■■■■■■■■■■■■\n\n");
